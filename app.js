@@ -17,8 +17,8 @@ for (var i = 0; i < buttons.length; i++) {
     AddListener(buttons[i]);
 }
 
-function AddListener (button) {
-    button.addEventListener("click", function() {
+function AddListener(button) {
+    button.addEventListener("click", function () {
         button.innerHTML = input;
         updateDatabase();
     })
@@ -34,9 +34,9 @@ function initializeUpdate() {
                 "#", "#", "#"];
     docRef.set({
         Table: data
-    }).then(function() {
+    }).then(function () {
         console.log("Status saved!");
-    }).catch(function(error) {
+    }).catch(function (error) {
         console.log("Got an error: ", error);
     });
 }
@@ -48,25 +48,25 @@ function updateDatabase() {
     }
     docRef.set({
         Table: data
-    }).then(function() {
+    }).then(function () {
         console.log("Status saved!");
-    }).catch(function(error) {
+    }).catch(function (error) {
         console.log("Got an error: ", error);
     });
 }
 
-getRealtimeUpdates = function() {
-    docRef.onSnapshot(function(doc) {
-         if (doc && doc.exists) {
-             const myData = doc.data();
-             for (var i = 0; i < buttons.length; i++) {
+getRealtimeUpdates = function () {
+    docRef.onSnapshot(function (doc) {
+        if (doc && doc.exists) {
+            const myData = doc.data();
+            for (var i = 0; i < buttons.length; i++) {
                 buttons[i].innerHTML = myData.Table[i];
             }
-         }
+        }
     });
 }
 
-document.getElementById("input").addEventListener("change", function() {
+document.getElementById("input").addEventListener("change", function () {
     input = document.getElementById("input").value;
 })
 
