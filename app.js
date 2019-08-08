@@ -14,7 +14,6 @@ var buttons = document.querySelectorAll("button");
 var input;
 
 for (var i = 0; i < buttons.length; i++) {
-    console.log(buttons[i].innerHTML);
     AddListener(buttons[i]);
 }
 
@@ -22,7 +21,6 @@ function AddListener (button) {
     button.addEventListener("click", function() {
         button.innerHTML = input;
         updateDatabase();
-        // alert("You have clicked : " + button.value);
     })
 }
 
